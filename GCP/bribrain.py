@@ -17,12 +17,8 @@ with Diagram("K8s Onpremise Developement", show="false"):
             GKEOnPrem("GKE_B"),
             GKEOnPrem("GKE_C")
         ]
-        svc_groups = [
-            GKEOnPrem("GKE_A"),
-            GKEOnPrem("GKE_B"),
-            GKEOnPrem("GKE_C")
-            ]
-    LB =LoadBalancing("LB")
+        
+    LB =LoadBalancing("LB")    
 
     with Cluster("Container Service K8s"):
         handlers = [
@@ -41,7 +37,7 @@ with Diagram("K8s Onpremise Developement", show="false"):
         db_master = SQL("Master")
         db_master = [SQL("Slave1"), SQL("Slave2")]
 
-    DNS >> F5 >> svc_groups >> LB >> handlers
+    dns >> F5 >> sec_groups >> LB >> handlers
     handlers[0] >> memchaced
     handlers[1] >> store1 >> store2
     handlers[2] >> db_master >> store2

@@ -1,6 +1,7 @@
 ## Prequiste
 install python max versio 3.9
 install pip
-install package diagrams
-
+install graphviz
+install boto3
+install diagrams
 
