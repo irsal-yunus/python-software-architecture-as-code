@@ -1,0 +1,16 @@
+digraph "Single User Architecture" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="Single User Architecture" nodesep=0.60 pad=2.0 rankdir=TB ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	"7c08c75372824346ba4902b8ca863c58" -> a125040a71ae46969d17a3a8d704c35a [label="Elastic IP" color=orange dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"7a34cc1c83734827811f02e5e18f58b1" -> "7c08c75372824346ba4902b8ca863c58" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	subgraph cluster_ {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		"7c08c75372824346ba4902b8ca863c58" [label=dns height=1.9 image="C:\Python39\lib\site-packages\resources/aws/network\route-53.png" shape=none]
+		subgraph cluster_AWS {
+			graph [bgcolor="#EBF3E7" fontname="Sans-Serif" fontsize=12 label=AWS labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+			a125040a71ae46969d17a3a8d704c35a [label="Lightsail Server" height=1.9 image="C:\Python39\lib\site-packages\resources/aws/compute\lightsail.png" shape=none]
+		}
+		"7a34cc1c83734827811f02e5e18f58b1" [label=User height=1.9 image="C:\Python39\lib\site-packages\resources/onprem/client\user.png" shape=none]
+	}
+}
